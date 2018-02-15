@@ -14,7 +14,7 @@
         <p class="subtitle is-6">{{post.topic}}</p>
 
     <div class="content">
-      {{post.treść}}
+      {{post.treść|truncatechars:150 }}
       <br>
       <time datetime="2016-1-1">{{post.date}}</time>
     </div>
