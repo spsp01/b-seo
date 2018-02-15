@@ -1,0 +1,39 @@
+{% block content %}
+{% load static %}
+<nav class="navbar is-transparent">
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item">
+                <img src="{%static "img/logo.png" %}" alt="Logo">
+            </a>
+            <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </span>
+        </div>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item is-active poppins">
+                    FAQ
+                </a>
+                <a href="/blog/" class="navbar-item poppins">
+                    Blog
+                </a>
+                <a href="/zaloguj/" class="navbar-item poppins">
+                    Zaloguj
+                </a>
+                <span class="navbar-item">
+              <a href="/zarejestruj/" class="button is-link is-inverted poppins">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                            <span>Zarejestruj</span>
+                            </a>
+                            </span>
+            </div>
+        </div>
+
+    </div>
+</nav>
+{% endblock %}

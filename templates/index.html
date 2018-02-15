@@ -1,56 +1,10 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Seo tools</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-    <link rel="stylesheet" href="static/css/index.css">
-
-    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
-</head>
-
-<body>
-    <section class="hero is-link is-medium" style="background-image: url('static/img/bg.png')">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero is-link is-medium" style="background-image: url('static/img/bg.png')">
         <!-- Hero head: will stick at the top -->
         <div class="hero-head">
-            <nav class="navbar is-transparent">
-                <div class="container">
-                    <div class="navbar-brand">
-                        <a class="navbar-item">
-            <img src="static/img/logo.png" alt="Logo">
-          </a>
-                        <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        </span>
-                    </div>
-                    <div id="navbarMenuHeroA" class="navbar-menu">
-                        <div class="navbar-end">
-                            <a class="navbar-item is-active poppins">
-              FAQ
-            </a>
-                            <a class="navbar-item poppins">
-              Blog
-            </a>
-                            <a class="navbar-item poppins">
-              Zaloguj
-            </a>
-                            <span class="navbar-item">
-              <a class="button is-link is-inverted poppins">
-                <span class="icon">
-                  <i class="fab fa-github"></i>
-                </span>
-                            <span>Zarejestruj</span>
-                            </a>
-                            </span>
-                        </div>
-                    </div>
-
-                </div>
-            </nav>
+        {% include "navbar.html" %}
         </div>
 
         <!-- Hero content: will be in the middle -->
@@ -64,7 +18,7 @@
                 </h2>
                 <p></p>
 
-                <a class="button is-rounded is-medium testuj"><span>⚙️</span><span>Testuj</span></a>
+                <a href="/" class="button is-rounded is-medium testuj"><span>⚙️</span><span>Testuj</span></a>
 
             </div>
         </div>
@@ -83,7 +37,7 @@
                 <div class="column is-4">
                     <article class="bundlecard card ">
                         <div class="card-content">
-                            <img src="static/img/bundle.png" alt="bundle">
+                            <img src="{%static "img/bundle.png" %}" alt="bundle">
 
                             <p>Many services, many logins, many dollars.</p>
                         </div>
@@ -93,7 +47,7 @@
                 <div class="column is-4">
                     <article class="bundlecard card ">
                         <div class="card-content">
-                            <img src="static/img/bundle.png" alt="Pollygot bundle">
+                            <img src="{%static "img/bundle.png" %}" alt="bundle">
                             <p>One platform for all your sites and services.</p>
                         </div>
 
@@ -118,99 +72,5 @@
   </div>
 
 </section>
-<section class="section">
-    <footer class="app-footer">
-        <div class="container">
-            <div class="columns is-multiline is-mobile">
-                <div class="column is-12-mobile is-4-tablet">
-                    <div class="closure"><a href="/" class="is-inline-block" title=""><img src="static/img/logo-min-grey.png" alt="logo"></a>
-
-                        <hr class="spacer is-1-5">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec metus a dui aliquam maximus vitae non nibh.  </p>
-                        <hr class="spacer is-1-5">
-                    </div>
-                </div>
-                <div class="column is-12-mobile is-2-tablet">
-                    <div class="menu">
-                        <h3 class="menu-label"> Sign up now </h3>
-                        <ul class="menu-list">
-                            <li> <a href="/inquire-as-employer">Employers</a> </li>
-                            <li>
-                                <a href="/inquire-as-recruiter-or-staffing-agency">Become a staffing partner</a> </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="column is-12-mobile is-2-tablet">
-                    <div class="menu">
-                        <h3 class="menu-label"> About us </h3>
-                        <ul class="menu-list">
-                            <li> <a href="/imprint">Imprint</a> </li>
-                            <li> <a href="mailto:team@domain.com">Press</a> </li>
-                            <li> <a href="/team">Team</a> </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="column is-12-mobile is-2-tablet">
-                    <div class="menu">
-                        <h3 class="menu-label"> Connect </h3>
-                        <ul class="menu-list">
-                            <li>
-                                <a href="https://twitter.com/" target="_blank" title="Twitter">Twitter</a>
-                            </li>
-                            <li> <a href="https://www.facebook.com/" target="_blank" title="Facebook">Facebook</a>
-                            </li>
-                            <li> <a href="https://www.instagram.com/" target="_blank" title="Instagram">Instagram</a> </li>
-                            <li> <a href="https://www.linkedin.com/" target="_blank" title="LinkedIn">LinkedIn</a> </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="column is-12-mobile is-2-tablet">
-                    <div class="menu">
-                        <h3 class="menu-label"> San Francisco, USA </h3>
-                        <ul class="menu-list">
-                            <li> <a href="https://google..pl">
-                          Linika 1<br>Linijk a2a<br>Polska
-                           </a> </li>
-                            <li> <a class="is-nowrap" href="mailto:team-us@hellogustav.com">team-us@domain.com</a> </li>
-                            <li> <a class="is-nowrap" href="tel">+48 778-2341</a> </li>
-                        </ul>
-                    </div>
-
-                </div>
-                          </div>
-        </div>
-    </footer>
-</section>
-
-    <script src="http://code.jquery.com/jquery-git.min.js"></script>
-    <script src="static/js/my.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-
-  // Get all "navbar-burger" elements
-  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
-
-    // Add a click event on each of them
-    $navbarBurgers.forEach(function ($el) {
-      $el.addEventListener('click', function () {
-
-        // Get the target from the "data-target" attribute
-        var target = $el.dataset.target;
-        var $target = document.getElementById(target);
-
-        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-        $el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-
-      });
-    });
-  }
-
-});</script>
-
-</body>
-
-</html>
+{% include "footer.html" %}
+{% endblock %}

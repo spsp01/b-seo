@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero is-link is-fullheight" style="background-image: url('{%static "img/bg.png" %}')">
+<div class="hero-head">
+    {% include "navbar.html" %}
+</div>
+
+<div class="hero-body">
+    <div class="container has-text-centered">
+
+        <div class="columns">
+            <div class="column">
+            </div>
+{% block formularz %}
+
+{% endblock %}
+            <div class="column">
+
+            </div>
+
+        </div>
+    </div>
+    </section>
+    {% endblock %}

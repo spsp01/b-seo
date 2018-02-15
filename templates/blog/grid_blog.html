@@ -1,0 +1,7 @@
+{% load static %}
+{% block content %}
+{% for post in Post %}
+<p>{{post.name}} {{post.topic}}</p>
+<img width="230px" src="/{{post.zdjecie}}">
+{% endfor %}
+ {% endblock %}
