@@ -11,5 +11,6 @@ class Post(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     zdjecie = models.ImageField(upload_to='static/img/post_main', default='static/img/logo.png')
     treść = models.TextField()
+
     def __str__(self):
         return self.name
