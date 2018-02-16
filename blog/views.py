@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from blog.models import Post
+from . import forms
 # Create your views here.
 
 def index(request):
@@ -12,7 +13,9 @@ def zaloguj(request):
     return render(request,'login.html', context=my_dict)
 
 def zarejestruj(request):
-    my_dict= {'Title_head': 'Zarejestruj | Seo Tools'}
+    form = forms.Register()
+    my_dict= {'Title_head': 'Zarejestruj | Seo Tools',
+              'register': form}
     return render(request,'zarejestruj.html', context=my_dict)
 
 def blog(request):

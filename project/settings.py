@@ -31,13 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog'
+    'blog',
+    'app'
 ]
 
 MIDDLEWARE = [
@@ -126,4 +128,4 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR,]
-# SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+#SITE_ROOT = os.path.dirname(os.path.realpath(__file__))

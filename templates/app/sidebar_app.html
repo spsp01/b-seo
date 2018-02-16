@@ -1,0 +1,34 @@
+{% load static %}
+{% block sidebar %}
+<div class="column is-3">
+        <aside class="menu">
+          <p class="menu-label">
+            Główne
+          </p>
+          <ul class="menu-list">
+            <li><a href="/"  class="is-active">Panel</a></li>
+		  </ul>
+			 <p class="menu-label">
+            Zapytania Test
+          </p>
+		  <ul class="menu-list">
+			  <li><a href="/querytest">Test zapytań</a></li>
+		  </ul>
+          <p class="menu-label">
+            Zapytania
+          </p>
+          <ul class="menu-list">
+            <li><a href="/pageinfo">Informacje o stronie</a></li>
+            <li>
+              <a>Szczegółowe zapytania</a>
+              <ul>
+                <li><a href="/titleinfo">Tytuł</a></li>
+                <li><a href="/descriptioninfo">Opis</a></li>
+                <li><a href="/h1info">H1</a></li>
+			    <li><a href="/canonicalinfo">Canonical</a></li>
+		    	<li><a href="/linksinfo">Liczba linków</a></li>
+              </ul>
+            </li>
+              </aside>
+      </div>
+{% endblock %}

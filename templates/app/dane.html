@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="columns">
+        {% include "app/sidebar_app.html" %}
+
+        <section class="section">
+            <form method="post">
+                {{form.errors.name}}
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control has-icons-left">
+                        {% csrf_token %}
+                        {{ form.name}}
+                        <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control has-icons-left">
+                        {{ form.email}}
+                        <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Message</label>
+                    <div class="control">
+                        {{ form.text}}
+                    </div>
+                </div>
+
+{{ form.hide}}
+                <input class="button is-link" type="submit" value="dodaj">
+
+            </form>
+
+        </section>
+
+
+    </div>
+</div>
+{% endblock %}
