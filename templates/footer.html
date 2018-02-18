@@ -16,9 +16,9 @@
                     <div class="menu">
                         <h3 class="menu-label"> Dołącz teraz </h3>
                         <ul class="menu-list">
-                            <li> <a href="/zarejestruj/">Zarejestruj</a> </li>
+                            <li> <a href="{% url 'blog:zarejestruj' %}">Zarejestruj</a> </li>
                             <li>
-                                <a href="/zaloguj/">Zaloguj</a> </li>
+                                <a href="{% url 'blog:zaloguj' %}">Zaloguj</a> </li>
                         </ul>
                     </div>
                 </div>
@@ -27,8 +27,8 @@
                         <h3 class="menu-label">Informacje</h3>
                         <ul class="menu-list">
                             <li> <a href="/">Porady</a> </li>
-                            <li> <a href="/">FAQ</a> </li>
-                            <li> <a href="/team">Blog</a> </li>
+                            <li> <a href="{% url 'blog:faq' %}">FAQ</a> </li>
+                            <li> <a href="{% url 'blog:blog' %}">Blog</a> </li>
                         </ul>
                     </div>
                 </div>

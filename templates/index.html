@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<section class="hero is-link is-medium" style="background-image: url('static/img/bg.png')">
+<section class="hero is-link is-medium" style="background-image: url('/static/img/bg.png')">
         <!-- Hero head: will stick at the top -->
         <div class="hero-head">
         {% include "navbar.html" %}
@@ -11,14 +11,13 @@
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title">
-                    Pellentesque congue maximus
+                    Narzędzia analizujące witryny
                 </h1>
                 <h2 class="subtitle">
-                    Donec ante risus, bibendum in diam in, facilisis pellentesque urna.
-                </h2>
+pod kątem SEO.                 </h2>
                 <p></p>
 
-                <a href="/app" class="button is-rounded is-medium testuj"><span>⚙️</span><span>Testuj</span></a>
+                <a href="{% url 'app:appindex' %}" class="button is-rounded is-medium testuj"><span>⚙️</span><span>Testuj</span></a>
 
             </div>
         </div>

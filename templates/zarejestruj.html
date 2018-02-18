@@ -2,32 +2,46 @@
 {% load static %}
 {% block formularz %}
             <div class="column is-half">
+
+                {% if registered %}
+                 <section class="bundlecard card ">
+                    <div class="card-content ">
+                  <h1 class="color-blue title ">
+                                Dziękuję za rejestrację
+                            </h1>
+                        <span>Możesz się już zalogować używając wprowadzonych danych</span>
+                        <p><a href="{% url 'blog:zaloguj' %}">Zaloguj</a></p>
+                    </div></section>
+                {% else %}
+
                 <section class="bundlecard card ">
                     <div class="card-content ">
 
                         <div class="field">
+                            <form enctype="multipart/form-data" method="post">
+                                {% csrf_token %}
                             <h1 class="color-blue title ">
                                 Rejestracja
                             </h1>
                             <p class="control has-icons-left ">
-                                {{register.email}}
+                                {{register.username}}
                                 <span class="icon is-small is-left">
-          <i class="fas fa-envelope"></i>
+          <i class="fas fa-user"></i>
         </span>
 
               </p>
                         </div>
                         <div class="field">
                             <p class="control has-icons-left">
-                                {{register.password}}
+                                {{register.email}}
                                 <span class="icon is-small is-left">
-          <i class="fas fa-lock"></i>
+          <i class="fas fa-envelope"></i>
         </span>
                             </p>
                         </div>
                          <div class="field">
                             <p class="control has-icons-left">
-                                {{register.vpassword}}
+                                {{register.password}}
                                 <span class="icon is-small is-left">
           <i class="fas fa-lock"></i>
         </span>
@@ -36,14 +50,16 @@
                         <div class="field">
 
                             <button class="button is-link">
-                                Zaloguj
+                               Zarejestruj
                             </button>
 
                         </div>
 
-                        <p>Masz już konto - Zaloguj</p>
+                        <p>Masz już konto - <a href="{% url 'blog:zaloguj' %}">Zaloguj</a></p>
+                        </form>
                     </div>
                 </section>
-
+{% endif %}
             </div>
+
 {% endblock %}

@@ -14,23 +14,36 @@
         </div>
         <div id="navbarMenuHeroA" class="navbar-menu">
             <div class="navbar-end">
-                <a class="navbar-item is-active poppins">
+                <a href="{% url 'blog:faq' %}" class="navbar-item is-active poppins">
                     FAQ
                 </a>
-                <a href="/blog/" class="navbar-item poppins">
+                <a href="{% url 'blog:blog' %}" class="navbar-item poppins">
                     Blog
                 </a>
-                <a href="/zaloguj/" class="navbar-item poppins">
+                {% if user.is_authenticated %}
+                          <span class="navbar-item">
+              <a href="{% url 'app:appindex' %}" class="button is-link is-inverted poppins">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                            <span>Powróć do apliakcji</span>
+                            </a>
+                            </span>
+
+                    {% else %}
+                <a href="{% url 'blog:zaloguj' %}" class="navbar-item poppins">
                     Zaloguj
                 </a>
                 <span class="navbar-item">
-              <a href="/zarejestruj/" class="button is-link is-inverted poppins">
+              <a href="{% url 'blog:zarejestruj' %}" class="button is-link is-inverted poppins">
                 <span class="icon">
                   <i class="fab fa-github"></i>
                 </span>
                             <span>Zarejestruj</span>
                             </a>
                             </span>
+
+                {% endif %}
             </div>
         </div>
 
