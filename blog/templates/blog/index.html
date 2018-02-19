@@ -1,10 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'blog/base.html' %}
 {% load static %}
 {% block content %}
 <section class="hero is-link is-medium" style="background-image: url('/static/img/bg.png')">
         <!-- Hero head: will stick at the top -->
         <div class="hero-head">
-        {% include "navbar.html" %}
+        {% include "blog/navbar.html" %}
         </div>
 
         <!-- Hero content: will be in the middle -->
@@ -58,6 +58,6 @@ pod kątem SEO.                 </h2>
         </div>
     </div>
 
-{% include "divider_info.html" %}
-{% include "footer.html" %}
+{% include "blog/divider_info.html" %}
+{% include "blog/footer.html" %}
 {% endblock %}

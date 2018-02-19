@@ -6,13 +6,13 @@
             Główne
           </p>
           <ul class="menu-list">
-            <li><a href="/"  class="is-active">Panel</a></li>
+            <li><a href="{% url 'app:appindex' %}"  class="is-active">Panel</a></li>
 		  </ul>
 			 <p class="menu-label">
-            Zapytania Test
+            Zapytania
           </p>
 		  <ul class="menu-list">
-			  <li><a href="/querytest">Test zapytań</a></li>
+			  <li><a href="{% url 'app:wykres' %}">Wykres</a></li>
 		  </ul>
           <p class="menu-label">
             Zapytania
@@ -22,7 +22,7 @@
             <li>
               <a>Szczegółowe zapytania</a>
               <ul>
-                <li><a href="/titleinfo">Tytuł</a></li>
+                <li><a href="/wykres">Wykres</a></li>
                 <li><a href="/descriptioninfo">Opis</a></li>
                 <li><a href="/h1info">H1</a></li>
 			    <li><a href="/canonicalinfo">Canonical</a></li>

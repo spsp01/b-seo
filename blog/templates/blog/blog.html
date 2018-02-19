@@ -1,9 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'blog/base.html' %}
 {% load static %}
 {% block content %}
 <section class="hero is-link" style="background-image: url('{%static "img/bg.png" %}')">
 <div class="hero-head">
-    {% include "navbar.html" %}
+    {% include 'blog/navbar.html' %}
 </div>
 
 <div class="hero-body">
@@ -41,7 +41,7 @@
   {% include "blog/grid_blog.html" %}
 </div>
 
-{% include "divider_info.html" %}
-{% include "footer.html" %}
+{% include "blog/divider_info.html" %}
+{% include "blog/footer.html" %}
 {% endblock %}
 

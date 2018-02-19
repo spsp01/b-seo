@@ -13,7 +13,7 @@ from django.views.generic import View, TemplateView
 class Index(TemplateView):
     #my_dict= {'Title_head': 'Seo Tools | Strona Główna'}
     #return render(request,'index.html', context=my_dict)
-    template_name = 'index.html'
+    template_name = 'blog/index.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['Title_head'] = 'Seo Tools | Strona Główna'
@@ -31,8 +31,8 @@ def zaloguj(request):
         else:
             context= {'Title_head': 'Zaloguj | Seo Tools',
                       'Error': 'błąd'}
-            return render(request,'login.html',context =context)
-    return render(request,'login.html', context=my_dict)
+            return render(request,'blog/login.html',context =context)
+    return render(request,'blog/login.html', context=my_dict)
 
 
 def zarejestruj(request):
@@ -51,7 +51,7 @@ def zarejestruj(request):
     my_dict = {'Title_head': 'Zarejestruj | Seo Tools',
                'register': form,
                'registered': registered}
-    return render(request,'zarejestruj.html', context=my_dict)
+    return render(request,'blog/zarejestruj.html', context=my_dict)
 
 @login_required
 def wyloguj(request):
@@ -63,11 +63,11 @@ def blog(request):
 
     my_dict= {'Title_head': 'Blog | SeoTools',
               'Post': post_list}
-    return render(request,'blog.html', context=my_dict)
+    return render(request,'blog/blog.html', context=my_dict)
 
 class Faq(TemplateView):
 
-    template_name = 'index.html'
+    template_name = 'blog/index.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['Title_head'] = 'FAQ'

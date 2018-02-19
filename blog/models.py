@@ -10,8 +10,8 @@ class Topic(models.Model):
 
 class Post(models.Model):
     name = models.CharField(max_length=255, default='Nowy Post')
-    date = models.DateField(blank=True, null=True)
-    create_date = models.DateTimeField(default=timezone.now())
+    date = models.DateField()
+    #create_date = models.DateTimeField(default=timezone.now())
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     zdjecie = models.ImageField(upload_to='static/img/post_main', default='static/img/logo.png')
     treść = models.TextField()
