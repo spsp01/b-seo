@@ -15,8 +15,15 @@ class MyModel(models.Model):
     def natural_key(self):
         return self.my_natural_key
 
-class AdresUrl(models.Model):
+class ProjektUrl(models.Model):
+    projekt = models.TextField(verbose_name='Projekt Url', default='domain.com', max_length=2000)
 
-    url = models.TextField(verbose_name='Adres Url', default='http://domain.com', max_length=2000)
+    def __str__(self):
+        return self.projekt
+
+class Url(models.Model):
+    url = models.TextField(verbose_name='Url', default='http://domain.com/link1', max_length=2000)
+    projekt = models.ForeignKey('ProjektUrl', on_delete=models.CASCADE)
+
     def __str__(self):
         return self.url

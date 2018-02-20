@@ -11,7 +11,7 @@
             <div class="card">
               <header class="card-header">
                 <p class="card-header-title">
-                  Lista URLi
+                  Lista Projektów
                 </p>
                 <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
@@ -21,16 +21,38 @@
               </header>
               <div class="card-content">
                 <div class="content">
-                    <ul>
-            {% for i in adresy_url %}
-                       <a href="{{ i.url }}"class="button">{{ i.url }}</a>
 
+            {% for i in Projekt %}
+                       <a href="{{ i.projekt }}"class="button">{{ i.projekt }}</a>
             {% endfor %}
-                      {% for i in Person %}
+
+
+                </div>
+              </div>
+            </div>
+
+
+        </section>
+          <section class="info-tiles">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">
+                 Lista userów
+                </p>
+                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </header>
+              <div class="card-content">
+                <div class="content">
+
+                              {% for i in Person %}
                        <a href="{{ i.name }}"class="button">{{ i.name }}</a>
 
             {% endfor %}
-                        </ul>
+
                 </div>
               </div>
             </div>

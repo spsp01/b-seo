@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from blog.models import Post
 from . import forms
-from .models import Person, MyModel, AdresUrl
+from .models import Person, MyModel, ProjektUrl, Url
 from django.contrib.auth import authenticate,login, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core import serializers
 from django.http import JsonResponse
 from random import randint
-from django.views.generic import TemplateView, View, ListView
+from django.views.generic import TemplateView, View, ListView, DetailView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -26,7 +26,6 @@ class Index(LoginRequiredMixin,TemplateView):
         return context
 
 class AddUrl(LoginRequiredMixin,TemplateView):
-
     login_url = '/zaloguj/'
     template_name = 'app/add.html'
     def get_context_data(self, **kwargs):
@@ -71,12 +70,23 @@ class HomeChart(View):
             return render(request, 'app/chart.html', {"customers": 10})
 
 class UrlListView(LoginRequiredMixin,ListView):
-
-    template_name = "app/list.html"
-    model = AdresUrl
-    #context_object_name = "adresy_url"
+    login_url = '/zaloguj/'
+    template_name = "app/app.html"
+    model = ProjektUrl
+    context_object_name = "adresy_url"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['Person'] = Person.objects.all()
+        context['Projekt'] = ProjektUrl.objects.all()
+        return context
+
+class ProjektView(LoginRequiredMixin, DetailView):
+    login_url = '/zaloguj/'
+    model = ProjektUrl
+    template_name = 'app/project_detail.html'
+    #pk_url_kwarg = 'urlpk'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Title_head'] = 'Title'
         return context

@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="container">
+    <div class="columns">
+{% include "app/sidebar_app.html" %}
+      <div class="column is-9">
+  {% include "app/breadcrumb.html" %}
+    {{projekturl.projekt}}
+asdasdas
+      </div>
+    </div>
+  </div>
+{% endblock %}

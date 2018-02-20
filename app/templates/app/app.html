@@ -23,20 +23,20 @@
           <div class="tile is-ancestor has-text-centered">
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">128</p>
-                <p class="subtitle">Urli w bazie</p>
+                <p class="title">{{Projekt.count}}</p>
+                <p class="subtitle">Projektów</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">30</p>
-                <p class="subtitle">Stron ma status 404</p>
+                <p class="title">{{Person.count}} </p>
+                <p class="subtitle">Userów</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">28%</p>
-                <p class="subtitle">Wykorzystanie API</p>
+                <p class="title">1%</p>
+                <p class="subtitle">Wykorzystanie </p>
               </article>
             </div>
             <div class="tile is-parent">
@@ -47,13 +47,11 @@
             </div>
           </div>
         </section>
-      <section class="info-tiles">
-
-
+<section class="info-tiles">
             <div class="card">
               <header class="card-header">
                 <p class="card-header-title">
-                  Informacje o URL
+                  Lista Projektów
                 </p>
                 <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
@@ -63,20 +61,42 @@
               </header>
               <div class="card-content">
                 <div class="content">
-                  <div class="control has-icons-left has-icons-right">
-                    <input class="input is-large" type="text" placeholder="">
-                    <span class="icon is-medium is-left">
-                      <i class="fa fa-search"></i>
-                    </span>
-                    <span class="icon is-medium is-right">
-                      <i class="fa fa-check"></i>
-                    </span>
-                  </div>
+
+            {% for i in Projekt%}
+                       <a href="projekt/{{i.pk}}"class="button">{{ i.projekt }}</a>
+
+            {% endfor %}
+
+
                 </div>
               </div>
             </div>
 
 
+        </section>
+          <section class="info-tiles">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">
+                 Lista userów
+                </p>
+                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </header>
+              <div class="card-content">
+                <div class="content">
+
+                              {% for i in Person %}
+                       <a href="{{ i.name }}"class="button">{{ i.name }}</a>
+
+            {% endfor %}
+
+                </div>
+              </div>
+            </div>
         </section>
       </div>
     </div>
