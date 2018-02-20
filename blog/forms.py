@@ -1,6 +1,6 @@
 from django import forms
 from django.core import validators
-from blog.models import UserProfile
+#from blog.models import UserProfile
 from django.contrib.auth.models import User
 
 class Register(forms.ModelForm):
