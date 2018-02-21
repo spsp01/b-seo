@@ -18,8 +18,15 @@ class MyModel(models.Model):
         return self.my_natural_key
 
 class ProjektUrl(models.Model):
-    projekt = models.TextField(verbose_name='Projekt Url', default='domain.com', max_length=2000)
+    BRAND = (('PM', 'Wewnętrzny'), ('GM','GroupM'))
+
+    projekt = models.CharField(verbose_name='Projekt Url', default='domain.com', max_length=255)
     active = models.BooleanField(default=True)
+    brand = models.CharField(max_length=255, choices=BRAND, default='PM')
+    account = models.CharField(max_length=255)
+    budzet = models.IntegerField()
+    image = models.FileField(upload_to='logo/',null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.projekt

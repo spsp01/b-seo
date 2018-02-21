@@ -1,0 +1,173 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero is-link" style="background-image: url('/static/img/bg.png')">
+      <div class="hero-head">
+        {% include "blog/navbar.html" %}
+        </div>
+  <div class="hero-body has-text-centered">
+    <div class="container">
+      <h1 class="title">
+        FAQ
+      </h1>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section container">
+    <div class="columns">
+      <div class="column is-3">
+        <aside class="menu">
+          <p class="menu-label">
+            Tagi
+          </p>
+          <ul class="menu-list">
+            <li><a>Pomoc</a></li>
+            <li><a>Pytania</a></li>
+            <li><a>FAQ</a></li>
+          </ul>
+        </aside>
+
+      </div>
+
+      <div class="column is-9">
+        <div class="box content">
+          <article class="post">
+            <h4>Ile kosztuje pozycjonowanie fraz?</h4>
+            <div class="media">
+              <div class="media-left">
+                <p class="image is-32x32">
+                  <img src="{% static 'img/avatar.png' %}">
+                </p>
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <a href="#">@seotools</a> odpowiedział w
+                    <span class="tag">FAQ</span>
+                  </p>
+                </div>
+              </div>
+            <div class="media-right">
+               <span class="has-text-grey-light"><i class="fa fa-comments"></i> 1</span>
+            </div>
+            </div>
+          </article>
+          <article class="post">
+            <h4>Ile czasu trzeba czekać aż pozycjonowanie fraz da pierwsze efekty?</h4>
+            <div class="media">
+              <div class="media-left">
+                <p class="image is-32x32">
+                  <img src="{% static 'img/avatar.png' %}">
+                </p>
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <a href="#">@seotools</a> odpowiedział w
+                    <span class="tag">FAQ</span>
+                  </p>
+                </div>
+              </div>
+              <div class="media-right">
+               <span class="has-text-grey-light"><i class="fa fa-comments"></i> 0</span>
+              </div>
+            </div>
+          </article>
+          <article class="post">
+            <h4>Czy warto inwestować w działania PPC?</h4>
+            <div class="media">
+              <div class="media-left">
+                <p class="image is-32x32">
+                 <img src="{% static 'img/avatar.png' %}">
+                </p>
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <a href="#">@seotools</a> odpowiedział w
+                    <span class="tag">FAQ</span>
+                  </p>
+                </div>
+              </div>
+              <div class="media-right">
+               <span class="has-text-grey-light"><i class="fa fa-comments"></i> 13</span>
+              </div>
+            </div>
+          </article>
+          <article class="post">
+            <h4>Dlaczego działania SEO należy prowadzić cały czas?</h4>
+            <div class="media">
+              <div class="media-left">
+                <p class="image is-32x32">
+                 <img src="{% static 'img/avatar.png' %}">
+                </p>
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <a href="#">@seotools</a> odpowiedział w
+                    <span class="tag">FAQ</span>
+                  </p>
+                </div>
+              </div>
+              <div class="media-right">
+               <span class="has-text-grey-light"><i class="fa fa-comments"></i> 2</span>
+              </div>
+            </div>
+          </article>
+          <article class="post">
+            <h4>Jak często aktualizowane są algorytmy wyszukiwarek?</h4>
+            <div class="media">
+              <div class="media-left">
+                <p class="image is-32x32">
+                <img src="{% static 'img/avatar.png' %}">
+                </p>
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <a href="#">@seotools</a> odpowiedział w
+                    <span class="tag">FAQ</span>
+                  </p>
+                </div>
+              </div>
+              <div class="media-right">
+               <span class="has-text-grey-light"><i class="fa fa-comments"></i> 2</span>
+              </div>
+            </div>
+          </article>
+          <article class="post">
+            <h4>Czy strona powinna być przyjazna dla urządzeń mobilnych?</h4>
+            <div class="media">
+              <div class="media-left">
+                <p class="image is-32x32">
+                  <img src="{% static 'img/avatar.png' %}">
+                </p>
+              </div>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <a href="#">@seotools</a> odpowiedział w
+                    <span class="tag">FAQ</span>
+                  </p>
+                </div>
+              </div>
+              <div class="media-right">
+               <span class="has-text-grey-light"><i class="fa fa-comments"></i> 2</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+{% include "blog/divider_info.html" %}
+{% include "blog/footer.html" %}
+{% endblock %}

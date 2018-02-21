@@ -67,7 +67,7 @@ def blog(request):
 
 class Faq(TemplateView):
 
-    template_name = 'blog/index.html'
+    template_name = 'blog/faq.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['Title_head'] = 'FAQ'

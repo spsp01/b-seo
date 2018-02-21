@@ -21,8 +21,19 @@
               </header>
               <div class="card-content">
                 <div class="content">
+                    <form method="POST" >
+                        {% csrf_token %}
+                    <div class="field is-grouped">
+                        <p class="control is-expanded">
+                            <input class="input" type="text" placeholder="Url">
+                        </p>
+                        <p class="control">
+                            <input type="submit" class="button is-info" value="Generuj URL"/>
 
+                        </p>
+                    </div>
                 </div>
+                  </form>
               </div>
             </div>
 

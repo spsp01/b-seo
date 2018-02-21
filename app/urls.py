@@ -6,12 +6,14 @@ app_name = 'app'
 urlpatterns = [
     path('',views.UrlListView.as_view(),name='appindex'),
     path('projekt/<int:pk>/', views.ProjektView.as_view(), name='url-detail'),
+    path('projekt/', views.projekt, name='projekt'),
     path('dane/',views.dane,name='dane'),
     path('people/', views.table,name='table'),
     path('api/chart/data/', views.ChartData.as_view(), name= 'api-data'),
     path('wykres/',views.HomeChart.as_view(),name='wykres'),
-    path('dodaj/',views.AddUrl.as_view(),name='dodaj'),
-    path('view1/<slug>/',views.ShortRedirect.as_view(), name='short')
+    #path('dodaj/',views.AddUrl.as_view(),name='dodaj'),
+    path('short/',views.ShortURL.as_view(),name='view1'),
+    path('short/<pk>/',views.ShortRedirect.as_view(), name='short'),
     #path('lista/', views.UrlListView.as_view(), name='article-list')
-    # path('tabelka/', views.LineChartJSONView,name='my_ajax_url'),
+    path('tabelka/', views.table,name='my_ajax_url'),
 ]

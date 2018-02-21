@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from blog.models import Post
+from django.http import HttpResponse, HttpResponseRedirect, Http404
+#from blog.models import Post
 from . import forms
-from .models import Person, MyModel, ProjektUrl, Url
+from .models import Person, MyModel, ProjektUrl, Url, UrlShortner
 from django.contrib.auth import authenticate,login, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
@@ -17,7 +17,6 @@ from rest_framework.response import Response
 # Create your views here.
 
 class Index(LoginRequiredMixin,TemplateView):
-
     login_url = '/zaloguj/'
     template_name = 'app/app.html'
     def get_context_data(self, **kwargs):
@@ -25,13 +24,7 @@ class Index(LoginRequiredMixin,TemplateView):
         context['Title_head'] = 'Panel | Seo Tools'
         return context
 
-class AddUrl(LoginRequiredMixin,TemplateView):
-    login_url = '/zaloguj/'
-    template_name = 'app/add.html'
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['Title_head'] = 'Dodaj | Seo Tools'
-        return context
+
 
 
 @login_required(login_url='/zaloguj/')
@@ -41,6 +34,9 @@ def dane(request):
               'form': form}
 
     return render(request,'app/dane.html', my_dict)
+@login_required(login_url='/zaloguj/')
+def projekt(request):
+    return HttpResponseRedirect('/app/')
 
 @login_required(login_url='/zaloguj/')
 def table(request):
@@ -77,6 +73,7 @@ class UrlListView(LoginRequiredMixin,ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['Title_head'] = 'Panel | Seo Tools'
         context['Person'] = Person.objects.all()
         context['Projekt'] = ProjektUrl.objects.all()
         return context
@@ -92,9 +89,28 @@ class ProjektView(LoginRequiredMixin, DetailView):
         return context
 
 class ShortRedirect(View):
+    def get(self,request, pk,*args, **kwargs):
+        qs = UrlShortner.objects.filter(shortcode__iexact=pk)
+        if qs.count() != 1 and not qs.exists():
+            raise Http404("Page does not exist")
+        obj = qs.first()
 
-    name = 'asdasdasd'
-    def get(self,request,*args, **kwargs):
-        print(*args)
-        print(**kwargs)
-        return HttpResponse('Hello again')
+        return HttpResponseRedirect(obj.url)
+
+class ShortURL(View):
+    #login_url = '/zaloguj/'
+    template_name = 'app/add.html'
+
+    def get(self,request,*args,**kwargs):
+        return render(request,'app/add.html',{'asdasd':'asdad'})
+
+    def post(self, request, *args, **kwargs):
+        return render(request, 'app/add.html', {})
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['Title_head'] = 'Short | Seo Tools'
+    #     return context
+
+def error_404(request):
+    data = {}
+    return render(request, 'myapp/error_404.html', data)

@@ -16,7 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
+from django.conf.urls.static import static
 from django.conf import settings
+from app import views as app_views
+from django.conf.urls import handler404, handler500
 
 from blog import views
 
@@ -27,7 +30,9 @@ urlpatterns = [
     path('app/', include('app.urls')),
 
 ]
+handler404 = app_views.error_404
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # if settings.DEBUG:
 #     import debug_toolbar
 #
