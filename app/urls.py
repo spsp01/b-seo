@@ -1,5 +1,6 @@
-from django.urls import path
+from django.urls import path, re_path
 from app import views
+
 
 app_name = 'app'
 urlpatterns = [
@@ -10,7 +11,7 @@ urlpatterns = [
     path('api/chart/data/', views.ChartData.as_view(), name= 'api-data'),
     path('wykres/',views.HomeChart.as_view(),name='wykres'),
     path('dodaj/',views.AddUrl.as_view(),name='dodaj'),
+    path('view1/<slug>/',views.ShortRedirect.as_view(), name='short')
     #path('lista/', views.UrlListView.as_view(), name='article-list')
     # path('tabelka/', views.LineChartJSONView,name='my_ajax_url'),
-
 ]

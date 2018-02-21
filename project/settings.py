@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar',
     'blog',
     'app',
     'django_tables2',
@@ -54,8 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware'
-]
+    ]
 
 ROOT_URLCONF = 'project.urls'
 
@@ -89,7 +87,6 @@ DATABASES = {
         'PASSWORD':'',
         'HOST':'localhost',
         'PORT':'3306',
-
     }
 }
 
@@ -146,4 +143,3 @@ STATICFILES_DIRS = [STATIC_DIR,]
 MEDIA_ROOT =MEDIA_DIR
 MEDIA_URL ='/media/'
 
-INTERNAL_IPS= ['127.0.0.1']

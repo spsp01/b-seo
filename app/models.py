@@ -1,4 +1,6 @@
 from django.db import models
+from .utils import generator_code, create
+
 
 # Create your models here.
 class Person(models.Model):
@@ -17,6 +19,7 @@ class MyModel(models.Model):
 
 class ProjektUrl(models.Model):
     projekt = models.TextField(verbose_name='Projekt Url', default='domain.com', max_length=2000)
+    active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.projekt
@@ -27,3 +30,18 @@ class Url(models.Model):
 
     def __str__(self):
         return self.url
+
+class UrlShortner(models.Model):
+    url = models.CharField(max_length=255)
+    shortcode = models.CharField(max_length=16, unique=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.url
+    
+    def save(self,*args,**kwargs):
+        if self.shortcode is None or self.shortcode=="":
+            self.shortcode = create(self)
+        super(UrlShortner, self).save(*args,**kwargs)

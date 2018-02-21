@@ -90,3 +90,11 @@ class ProjektView(LoginRequiredMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context['Title_head'] = 'Title'
         return context
+
+class ShortRedirect(View):
+
+    name = 'asdasdasd'
+    def get(self,request,*args, **kwargs):
+        print(*args)
+        print(**kwargs)
+        return HttpResponse('Hello again')
