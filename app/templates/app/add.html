@@ -7,6 +7,12 @@
       <div class="column is-9">
   {% include "app/breadcrumb.html" %}
 
+          {% if created %}
+                <div class="notification is-link">
+  <button class="delete"></button>
+Wygenerowano skrócony URL:  {{url}}
+</div>
+          {% endif %}
        <section class="info-tiles">
             <div class="card">
               <header class="card-header">
@@ -21,11 +27,17 @@
               </header>
               <div class="card-content">
                 <div class="content">
-                    <form method="POST" >
+                    <form method="POST" action'.'>
                         {% csrf_token %}
+                    {% if form.errors.urlshort %}
+                    <div class="notification is-warning">
+  {{form.errors.urlshort.as_text}}
+</div>
+                    {% endif %}
+
                     <div class="field is-grouped">
                         <p class="control is-expanded">
-                            <input class="input" type="text" placeholder="Url">
+                            <input name="urlshort" class="input" type="text" placeholder="Url">
                         </p>
                         <p class="control">
                             <input type="submit" class="button is-info" value="Generuj URL"/>

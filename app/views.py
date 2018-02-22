@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-#from blog.models import Post
 from . import forms
 from .models import Person, MyModel, ProjektUrl, Url, UrlShortner
 from django.contrib.auth import authenticate,login, logout
@@ -23,9 +22,6 @@ class Index(LoginRequiredMixin,TemplateView):
         context = super().get_context_data(**kwargs)
         context['Title_head'] = 'Panel | Seo Tools'
         return context
-
-
-
 
 @login_required(login_url='/zaloguj/')
 def dane(request):
@@ -99,13 +95,43 @@ class ShortRedirect(View):
 
 class ShortURL(View):
     #login_url = '/zaloguj/'
-    template_name = 'app/add.html'
+
 
     def get(self,request,*args,**kwargs):
-        return render(request,'app/add.html',{'asdasd':'asdad'})
+        template_name = 'app/add.html'
+        form = forms.SubmitUrlForm()
+        context = {
+            'Title_head': 'ShortUrl - Generuj Skrólcony URL',
+            'form': form
+        }
+        return render(request,template_name,context=context)
+
 
     def post(self, request, *args, **kwargs):
-        return render(request, 'app/add.html', {})
+        #print(request.POST.get('url'))
+        form = forms.SubmitUrlForm(request.POST)
+        context = {
+            'Title_head': 'ShortUrl - Generuj Skrólcony URL',
+            'form': form
+        }
+        template_name = 'app/add.html'
+        if form.is_valid():
+            exist = 0
+            new_url = form.clean_urlshort
+            obj, created = UrlShortner.objects.get_or_create(url=new_url)
+            context_new = {
+                'object': obj,
+                'created': created,
+                'url': new_url,
+                'exist': exist
+            }
+            if created:
+                return render(request,'app/add.html', context=context_new)
+            else:
+                exist= 1
+                return render(request, 'app/add.html', context=context_new)
+
+        return render(request, template_name, context= context)
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
     #     context['Title_head'] = 'Short | Seo Tools'
