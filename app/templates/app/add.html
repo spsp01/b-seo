@@ -10,7 +10,7 @@
           {% if created %}
                 <div class="notification is-link">
   <button class="delete"></button>
-Wygenerowano skrócony URL:  {{url}}
+Wygenerowano skrócony URL:  {{ request.get_host }}/{{object.get_short_url}}
 </div>
           {% endif %}
        <section class="info-tiles">

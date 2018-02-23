@@ -90,12 +90,10 @@ class ShortRedirect(View):
         if qs.count() != 1 and not qs.exists():
             raise Http404("Page does not exist")
         obj = qs.first()
-
         return HttpResponseRedirect(obj.url)
 
 class ShortURL(View):
     #login_url = '/zaloguj/'
-
 
     def get(self,request,*args,**kwargs):
         template_name = 'app/add.html'

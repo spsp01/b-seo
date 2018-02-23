@@ -1,6 +1,6 @@
 from django.db import models
 from .utils import generator_code, create
-
+from django.urls import reverse
 
 # Create your models here.
 class Person(models.Model):
@@ -52,3 +52,6 @@ class UrlShortner(models.Model):
         if self.shortcode is None or self.shortcode=="":
             self.shortcode = create(self)
         super(UrlShortner, self).save(*args,**kwargs)
+
+    def get_short_url(self):
+        return self.shortcode

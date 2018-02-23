@@ -9,10 +9,10 @@
             <li><a href="{% url 'app:appindex' %}"  class="is-active">Panel</a></li>
 		  </ul>
 			 <p class="menu-label">
-            Zapytania
+            Strony
           </p>
 		  <ul class="menu-list">
-			  <li><a href="{% url 'app:wykres' %}">Wykres</a></li>
+			  <li><a href="{% url 'app:view1' %}">Wykres</a></li>
 		  </ul>
           <p class="menu-label">
             Zapytania
@@ -22,7 +22,7 @@
             <li>
               <a>Szczegółowe zapytania</a>
               <ul>
-                <li><a href="/wykres">Wykres</a></li>
+                <li><a href="{% url 'app:wykres' %}">Wykres</a></li>
                 <li><a href="/descriptioninfo">Opis</a></li>
                 <li><a href="/h1info">H1</a></li>
 			    <li><a href="/canonicalinfo">Canonical</a></li>

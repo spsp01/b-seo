@@ -19,6 +19,7 @@ from django.urls import include
 from django.conf.urls.static import static
 from django.conf import settings
 from app import views as app_views
+
 from django.conf.urls import handler404, handler500
 
 from blog import views
@@ -28,6 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
     path('app/', include('app.urls')),
+    path('<pk>/',app_views.ShortRedirect.as_view(), name='short'),
 
 ]
 handler404 = app_views.error_404
