@@ -26,7 +26,7 @@ SECRET_KEY = '@)42wnmm93+9_*%0ylm+02_u8+ktxi-_)u_b7p)1zu0z_6w!rh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.127']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'blog',
     'app',
     'django_tables2',
-    'rest_framework'
+    'rest_framework',
+    'chartkick',
   ]
 
 MIDDLEWARE = [
@@ -138,7 +139,8 @@ DEFAULT_CHARSET = 'utf-8'
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [STATIC_DIR,]
+import chartkick
+STATICFILES_DIRS = [STATIC_DIR,chartkick.js(),]
 #SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 MEDIA_ROOT =MEDIA_DIR
 MEDIA_URL ='/media/'

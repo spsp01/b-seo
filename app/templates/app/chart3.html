@@ -1,0 +1,35 @@
+{% extends 'app/base_charts.html' %}
+{% load chartkick %}
+{% block content %}
+<div class="container">
+    <div class="columns">
+{% include "app/sidebar_app.html" %}
+      <div class="column is-9">
+  {% include "app/breadcrumb.html" %}
+
+
+          <div class="card">
+  <div class="card-content">
+      <h1 class="title">Linki dodane</h1>
+          <h2 class="subtitle">w Lutym</h2>
+{% column_chart data %}
+      {% line_chart data %}
+  <footer class="card-footer">
+    <p class="card-footer-item">
+      <span>
+      <a href="https://twitter.com/codinghorror/status/506010907021828096">Poprzedni miesiąc</a>
+      </span>
+    </p>
+    <p class="card-footer-item">
+      <span>
+        <a href="#">Następny miesiąc</a>
+      </span>
+    </p>
+  </footer>
+</div>
+
+
+
+    </div>
+</div>
+{% endblock content %}

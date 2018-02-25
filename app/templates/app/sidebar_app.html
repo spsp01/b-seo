@@ -1,6 +1,7 @@
 {% load static %}
 {% block sidebar %}
 <div class="column is-3">
+    <div class="container">
         <aside class="menu">
           <p class="menu-label">
             Główne
@@ -9,26 +10,20 @@
             <li><a href="{% url 'app:appindex' %}"  class="is-active">Panel</a></li>
 		  </ul>
 			 <p class="menu-label">
-            Strony
+            Projekty
           </p>
 		  <ul class="menu-list">
-			  <li><a href="{% url 'app:view1' %}">Wykres</a></li>
+              <li><a href="{% url 'app:projekty' %}">Lista projektów</a></li>
+			  <li><a href="{% url 'app:dodajurl' %}">Dodaj link</a></li>
+               <li><a href="{% url 'app:wykres' %}">Wykres linków</a></li>
 		  </ul>
           <p class="menu-label">
             Zapytania
           </p>
           <ul class="menu-list">
-            <li><a href="/pageinfo">Informacje o stronie</a></li>
-            <li>
-              <a>Szczegółowe zapytania</a>
-              <ul>
-                <li><a href="{% url 'app:wykres' %}">Wykres</a></li>
-                <li><a href="/descriptioninfo">Opis</a></li>
-                <li><a href="/h1info">H1</a></li>
-			    <li><a href="/canonicalinfo">Canonical</a></li>
-		    	<li><a href="/linksinfo">Liczba linków</a></li>
-              </ul>
-            </li>
+              <li><a href="{% url 'app:view1' %}">Skaracacz Urli</a></li>
+
               </aside>
       </div>
+    </div>
 {% endblock %}

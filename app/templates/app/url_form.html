@@ -1,19 +1,12 @@
 {% extends 'app/base.html' %}
 {% load static %}
 {% block content %}
-  <div class="container">
+<div class="container">
     <div class="columns">
 {% include "app/sidebar_app.html" %}
-
       <div class="column is-9">
   {% include "app/breadcrumb.html" %}
 
-          {% if created %}
-                <div class="notification is-link">
-  <button class="delete"></button>
-Wygenerowano skrócony URL:  {{ request.get_host }}/{{object.get_short_url}}
-</div>
-          {% endif %}
        <section class="info-tiles">
             <div class="card">
               <header class="card-header">
@@ -30,19 +23,22 @@ Wygenerowano skrócony URL:  {{ request.get_host }}/{{object.get_short_url}}
                 <div class="content">
                     <form method="POST" action'.'>
                         {% csrf_token %}
-                    {% if form.errors.urlshort %}
-                    <div class="notification is-warning">
-  {{form.errors.urlshort.as_text}}
-</div>
-                    {% endif %}
-
                     <div class="field is-grouped">
+
+                    {{ form.url }}
+                    {{ form.data_publikacji }}
+
+ <div class="control ">
+                           <div class="select ">
+   {{ form.projekty }}
+</div>
+ </div>
+
                         <p class="control is-expanded">
-                            <input name="urlshort" class="input" type="text" placeholder="Url">
+
                         </p>
                         <p class="control">
-                            <input type="submit" class="button is-info" value="Generuj URL"/>
-
+                            <input type="submit" class="button is-info" value="Dodaj URL"/>
                         </p>
                     </div>
                 </div>

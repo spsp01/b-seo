@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load chartkick %}
+
+    <head>
+        <title>django-chartjs line chart demo</title>
+<script src="{% static 'chartkick.js' %}"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js"></script>
+
+    </head>
+    <body>
+        <h1>Some Line Charts loaded in Ajax!</h1>
+asdasdasd
+        {% line_chart data %}
+{% column_chart data %}
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    </body>
+</html>

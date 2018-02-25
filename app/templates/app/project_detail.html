@@ -1,4 +1,5 @@
-{% extends 'app/base.html' %}
+{% extends 'app/base_charts.html' %}
+{% load chartkick %}
 {% load static %}
 {% block content %}
   <div class="container">
@@ -47,6 +48,7 @@
                 <p class="card-header-title">
                  Lista linków
                 </p>
+                   <div class="level-right"><a href="{% url 'app:dodajurl' %}" class="button is-link is-outlined "> Dodaj Link </a></div>
                 <a href="#" class="card-header-icon" aria-label="more options">
                   <span class="icon">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -56,7 +58,32 @@
               <div class="card-content">
                 <div class="content">
 
-                 1 URL
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Data Publikacji</th>
+                            <th>Link</th>
+                        </tr>
+                        </thead>
+                         <tbody>
+                                {% for i in Links %}
+                         <tr>
+                             <td>
+                               {{ forloop.counter }}
+                             </td>
+                               <td>
+                               {{i.data_publikacji}}
+                             <td>
+                               {{i.url}}
+                             </td>
+                         </tr>
+                          {% endfor %}
+                         </tbody>
+                    </table>
+
+
 
                 </div>
               </div>
@@ -67,12 +94,90 @@
           <div class="tile is-ancestor has-text-centered">
             <div class="tile is-parent">
               <article class="tile is-child box">
-                  dfgdfg
+                  {{projekturl.informacje}}
               </article>
             </div>
             <div class="tile is-parent ">
               <article class="tile is-child box">
-               fdgfdgdf
+               {{projekturl.info_acc}}
+              </article>
+            </div>
+          </div>
+        </section>
+
+
+           <section class="info-tiles">
+          <div class="tile is-ancestor has-text-centered">
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+{% line_chart Wykres %}
+
+              </article>
+            </div>
+
+          </div>
+        </section>
+
+                    <section class="info-tiles">
+          <div class="tile is-ancestor has-text-centered">
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+
+                   <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Liczba kliknięć</th>
+                            <th>Wyświetlenia</th>
+                        </tr>
+                        </thead>
+                         <tbody>
+                                   {% for i in Tabela %}
+                         <tr>
+                             <td>
+                                {{i.date}}
+                             </td>
+                               <td>
+                                {{i.clicks}}
+                             <td>
+                              {{i.impressions}}
+                             </td>
+                         </tr>
+                          {% endfor %}
+                         </tbody>
+                    </table>
+
+
+
+
+
+              </article>
+            </div>
+            <div class="tile is-parent ">
+              <article class="tile is-child box">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Liczba kliknięć</th>
+                            <th>Wyświetlenia</th>
+                        </tr>
+                        </thead>
+                         <tbody>
+                                   {% for i in Poprzedni %}
+                         <tr>
+                             <td>
+                                {{i.date}}
+                             </td>
+                               <td>
+                                {{i.clicks}}
+                             <td>
+                              {{i.impressions}}
+                             </td>
+                         </tr>
+                          {% endfor %}
+                         </tbody>
+                    </table>
               </article>
             </div>
           </div>

@@ -35,8 +35,8 @@
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">1%</p>
-                <p class="subtitle">Wykorzystanie </p>
+                <p class="title">{{Url.count}}</p>
+                <p class="subtitle">Urli </p>
               </article>
             </div>
             <div class="tile is-parent">
@@ -63,6 +63,8 @@
                 <div class="content">
 
             {% for i in Projekt%}
+
+
                        <a href="projekt/{{i.pk}}"class="button">{{ i.projekt }}</a>
 
             {% endfor %}

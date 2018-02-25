@@ -21,9 +21,35 @@
               </header>
               <div class="card-content">
                 <div class="content">
-
+<table class="table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Projekt</th>
+                            <th>Budżet</th>
+                            <th>Do strony</th>
+                        </tr>
+                        </thead>
+                         <tbody>
+                                {% for i in Projekt %}
+                         <tr>
+                             <td>
+                               {{ forloop.counter }}
+                             </td>
+                               <td>
+                               <a href="/app/projekt/{{i.pk}} ">{{ i.projekt }}</a>
+                             <td>
+                               {{i.budzet}}
+                             </td>
+                               <td>
+                             <a href="http://{{i.projekt}}"><i class="fas fa-link"></i></a>
+                             </td>
+                         </tr>
+                          {% endfor %}
+                         </tbody>
+                    </table>
             {% for i in Projekt %}
-                       <a href="{{ i.projekt }}"class="button">{{ i.projekt }}</a>
+
             {% endfor %}
 
 
@@ -32,33 +58,7 @@
             </div>
 
 
-        </section>
-          <section class="info-tiles">
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">
-                 Lista userów
-                </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </header>
-              <div class="card-content">
-                <div class="content">
 
-                              {% for i in Person %}
-                       <a href="{{ i.name }}"class="button">{{ i.name }}</a>
-
-            {% endfor %}
-
-                </div>
-              </div>
-            </div>
-
-
-        </section>
       </div>
     </div>
   </div>

@@ -1,5 +1,7 @@
 from django import forms
 from django.core import validators
+from django.forms import ModelForm
+from .models import Url
 
 class FormName(forms.Form):
     name = forms.CharField(widget=forms.TextInput(attrs={'class': 'input'}),validators=[validators.MaxLengthValidator(1)])
@@ -29,4 +31,30 @@ class SubmitUrlForm(forms.Form):
         return urlshort
 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+class AddUrlForm(ModelForm):
+
+    class Meta:
+        model = Url
+        fields = ['url', 'data_publikacji', 'projekty']
+        widgets = {
+            'data_publikacji': DateInput(attrs={'class': 'input'}),
+            'url': forms.TextInput(attrs={'class': 'input','placeholder': 'Wpisz adres URL'}),
+            #'projekty': forms.Select(attrs={'class': 'select'})
+        }
+
+
+    def clean_url(self):
+        url = self.cleaned_data['url']
+        url_validator = validators.URLValidator()
+
+        try:
+            url_validator(url)
+        except:
+            print(url)
+            raise forms.ValidationError('Błędny adres URL')
+
+        return url
 
