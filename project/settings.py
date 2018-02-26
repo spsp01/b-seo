@@ -27,7 +27,7 @@ SECRET_KEY = '@)42wnmm93+9_*%0ylm+02_u8+ktxi-_)u_b7p)1zu0z_6w!rh'
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost','toolseo.herokuapp.com']
 
 # Application definition
 
@@ -90,6 +90,9 @@ DATABASES = {
         'PORT':'3306',
     }
 }
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
