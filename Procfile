@@ -1,0 +1,1 @@
+web: gunicorn toolseo.wsgi --log-file -
