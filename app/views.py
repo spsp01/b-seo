@@ -43,17 +43,18 @@ class ChartData(APIView):
 
     def get(self, request, format=None):
         qs = Url.objects.values('data_publikacji')
+        default = []
         qlist= list(qs)
         labels = utils.month_date(2,3,2018)
-        occur = []
-        for i in qlist:
-            occur.append(i['data_publikacji'].strftime("%Y-%m-%d"))
-        default = []
-        for i in labels:
-            default.append(occur.count(i))
-
-        #labels = serialize('json', qs)
-        default_items = [1, 23, 2, 3, 12, 2]
+        # occur = []
+        # for i in qlist:
+        #     occur.append(i['data_publikacji'].strftime("%Y-%m-%d"))
+        #
+        # for i in labels:
+        #     default.append(occur.count(i))
+        #
+        # #labels = serialize('json', qs)
+        # default_items = [1, 23, 2, 3, 12, 2]
         data = {
                 "labels":  labels,
                 "default": default,
@@ -82,12 +83,12 @@ class ProjektView(LoginRequiredMixin, DetailView):
     login_url = '/zaloguj/'
     model = ProjektUrl
     template_name = 'app/project_detail.html'
-
-    qs = Clicks.objects.all().order_by('-date')[0:30]
-    dane = list(qs)
     default = {}
-    for i in dane:
-        default[str(i.date)] = i.clicks
+    # qs = Clicks.objects.all().order_by('-date')[0:30]
+    # dane = list(qs)
+    #
+    # for i in dane:
+    #     default[str(i.date)] = i.clicks
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -168,15 +169,17 @@ class Wykresik(LoginRequiredMixin,TemplateView):
     # default = {}
     # for i in dane:
     #     default[str(i.date)] = i.clicks
-    qs = Url.objects.values('data_publikacji')
-    qlist = list(qs)
-    labels = utils.month_date(2, 3, 2018)
-    occur = []
-    for i in qlist:
-        occur.append(i['data_publikacji'].strftime("%Y-%m-%d"))
+
     default = {}
-    for i in labels:
-        default[str(i)[5:]]= occur.count(i)
+    # qs = Url.objects.values('data_publikacji')
+    # qlist = list(qs)
+    # labels = utils.month_date(2, 3, 2018)
+    # occur = []
+    # for i in qlist:
+    #     occur.append(i['data_publikacji'].strftime("%Y-%m-%d"))
+    #
+    # for i in labels:
+    #     default[str(i)[5:]]= occur.count(i)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
