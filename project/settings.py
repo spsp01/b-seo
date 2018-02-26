@@ -24,10 +24,10 @@ MEDIA_DIR = os.path.join(BASE_DIR,'media')
 SECRET_KEY = '@)42wnmm93+9_*%0ylm+02_u8+ktxi-_)u_b7p)1zu0z_6w!rh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = ['toolseo.herokuapp.com']
 
 # Application definition
 
@@ -137,10 +137,10 @@ DEFAULT_CHARSET = 'utf-8'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 import chartkick
-STATICFILES_DIRS = [STATIC_DIR,chartkick.js(),]
+STATICFILES_DIRS = [chartkick.js(),]
 #SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 MEDIA_ROOT =MEDIA_DIR
 MEDIA_URL ='/media/'

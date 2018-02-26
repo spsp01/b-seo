@@ -6,7 +6,7 @@ from . import forms
 from django.contrib.auth import authenticate,login, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from django.views.generic import View, TemplateView
+from django.views.generic import View, TemplateView, DetailView
 
 # Create your views here.
 
@@ -33,6 +33,16 @@ def zaloguj(request):
                       'Error': 'błąd'}
             return render(request,'blog/login.html',context =context)
     return render(request,'blog/login.html', context=my_dict)
+
+
+class Blogpost(DetailView):
+    model = Post
+    template_name = 'blog/post_detail.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Title_head'] = str(Post.objects.first())
+        return context
+
 
 
 def zarejestruj(request):

@@ -8,6 +8,7 @@ urlpatterns = [
     path('zaloguj/', views.zaloguj,name='zaloguj'),
     path('zarejestruj/', views.zarejestruj,name='zarejestruj'),
     path('blog/', views.blog,name='blog'),
+    path('blog/<int:pk>/', views.Blogpost.as_view(),name='blogpost'),
     path('wyloguj/',views.wyloguj,name='wyloguj'),
     path('faq/',views.Faq.as_view(),name='faq')
 ]

@@ -14,3 +14,8 @@
 # Gradle:
 .idea/**/gradle.xml
 .idea/**/libraries
+
+venv
+*.pyc
+staticfiles
+.env
