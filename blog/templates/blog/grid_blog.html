@@ -9,8 +9,8 @@
       <img src="{{post.zdjecie.url}}" alt="{{post.name}}">
     </figure>
   </div>
-  <div class="card-content">
-    <p class="title is-4">{{post.name}}</p>
+  <a class="card-content">
+    <p class="title is-4"><a href="/blog/{{post.pk}}">{{post.name}}</p></a>
         <p class="subtitle is-6">{{post.topic}}</p>
 
     <div class="content">
@@ -25,4 +25,4 @@
 </div>
 <section class="section"></section>
 
-     {% endblock %}
+ {% endblock %}

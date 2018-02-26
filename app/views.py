@@ -14,7 +14,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.core.serializers import serialize
 from . import utils
-from chartjs.views.lines import BaseLineChartView
+
 
 
 @login_required(login_url='/zaloguj/')
@@ -88,7 +88,7 @@ class ProjektView(LoginRequiredMixin, DetailView):
     default = {}
     for i in dane:
         default[str(i.date)] = i.clicks
-    print(default)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['Title_head'] = str(ProjektUrl.objects.first())+' Projekt'
@@ -163,24 +163,25 @@ class Wykresik(LoginRequiredMixin,TemplateView):
     login_url = '/zaloguj/'
     template_name = 'app/chart3.html'
 
-    qs = Clicks.objects.all().order_by('-date')[0:30]
-    dane = list(qs)
-    default = {}
-    for i in dane:
-        default[str(i.date)] = i.clicks
-    # qs = Url.objects.values('data_publikacji')
-    # qlist = list(qs)
-    # labels = utils.month_date(2, 3, 2018)
-    # occur = []
-    # for i in qlist:
-    #     occur.append(i['data_publikacji'].strftime("%Y-%m-%d"))
+    # qs = Clicks.objects.all().order_by('-date')[0:30]
+    # dane = list(qs)
     # default = {}
-    # for i in labels:
-    #     default[str(i)[5:]]= occur.count(i)
+    # for i in dane:
+    #     default[str(i.date)] = i.clicks
+    qs = Url.objects.values('data_publikacji')
+    qlist = list(qs)
+    labels = utils.month_date(2, 3, 2018)
+    occur = []
+    for i in qlist:
+        occur.append(i['data_publikacji'].strftime("%Y-%m-%d"))
+    default = {}
+    for i in labels:
+        default[str(i)[5:]]= occur.count(i)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['data'] = self.default
+        context['Title_head'] = 'Linki dodane | Seo Tools'
         return context
 
 

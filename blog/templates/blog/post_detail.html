@@ -1,0 +1,73 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero is-link" style="background-image: url('{%static "img/bg.png" %}')">
+<div class="hero-head">
+    {% include 'blog/navbar.html' %}
+</div>
+
+<div class="hero-body">
+    <div class="container has-text-centered">
+        <h1 class="title">
+            Blog
+        </h1>
+    </div>
+    </section>
+<section class="section">
+        <div class="columns">
+            <div class="column "></div>
+            <div class="column is-two-thirds">
+                <div class="tabs main-tabs">
+                    <ul>
+                        <li class="is-active">
+                            <a href="{% url 'blog:blog' %}">Najnowsze</a>
+                        </li>
+                        <li>
+                            <a href="#">Polecane</a>
+                        </li>
+                        <li>
+                            <a href="#">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="column"></div>
+        </div>
+    </section>
+
+<section class="articles">
+        <div class="column is-8 is-offset-2">
+
+          <!-- START ARTICLE -->
+          <div class="card article">
+            <div class="card-content">
+
+                <div class="media-center has-text-centered">
+                    <img src="{{post.zdjecie.url}}" class="author-image" alt="Placeholder image">
+                </div>
+                <div class="has-text-centered">
+                  <p class="title article-title">{{post.name}}</p>
+
+                </div>
+                   <p class="subtitle is-6 article-subtitle has-text-centered">
+                  {{post.topic}} |   {{post.date}}
+                  </p>
+
+
+
+            <div class="content article-body">
+            {{post.treść}}
+              </div>
+            </div>
+          </div>
+          <!-- END ARTICLE -->
+
+
+    </div></section>
+
+{% include "blog/divider_info.html" %}
+{% include "blog/footer.html" %}
+{% endblock %}
+
