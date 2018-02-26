@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-import app.forms
-from app.models import Person, MyModel, ProjektUrl, Url, UrlShortner, Clicks
+import forms
+from models import Person, MyModel, ProjektUrl, Url, UrlShortner, Clicks
 from django.contrib.auth import authenticate,login, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
@@ -13,7 +13,7 @@ from django.views.generic import TemplateView, View, ListView, DetailView, Creat
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.core.serializers import serialize
-import app.utils
+import utils
 
 
 
