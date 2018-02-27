@@ -27,7 +27,7 @@ SECRET_KEY = '@)42wnmm93+9_*%0ylm+02_u8+ktxi-_)u_b7p)1zu0z_6w!rh'
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['toolseo.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
