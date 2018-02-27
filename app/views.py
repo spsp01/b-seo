@@ -96,7 +96,7 @@ class ProjektView(LoginRequiredMixin, DetailView):
         context['Links'] = Url.objects.filter(projekty= context['projekturl'])
         context['Tabela'] =Clicks.objects.all().order_by('-date')[0:30]
         context['Poprzedni'] = Clicks.objects.all().order_by('-date')[0:30]
-        context['Poprzedni'] = Clicks.objects.all().order_by('-date')[30:60]
+        context['Poprzedni30'] = Clicks.objects.all().order_by('-date')[30:60]
         context['Wykres'] = self.default
         return context
 
