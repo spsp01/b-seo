@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
     ]
 
 ROOT_URLCONF = 'project.urls'
@@ -143,8 +144,9 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 import chartkick
-STATICFILES_DIRS = [chartkick.js(),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),chartkick.js(),]
 #SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 MEDIA_ROOT =MEDIA_DIR
 MEDIA_URL ='/media/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
