@@ -12,3 +12,4 @@ gunicorn==19.7.1
 whitenoise==3.3.1
 argon2-cffi >= 16.0.0
 django[argon2]
+argon2 == 0.1.10
